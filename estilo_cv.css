@@ -1,0 +1,654 @@
+:root {
+	--color_rojo:#ff6961;
+	--color_verde:#77dd77;
+	--color_amarillo:#fdfd96;
+	--color_azul:#84b6f4;
+	--color_rosa:#fdcae1;
+	--color_blanco:#ffffff;
+	--color_negro:#000000;
+	--color_letra:#464646;
+        --color_celeste: #EAF2FD;
+}
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration:none;
+} 
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  padding-top: 1rem;
+  margin-top: 1rem;
+	padding: 0;
+}
+
+
+/* header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.container{
+  display: flex;
+  justify-content: flex-end;
+  background: var(--color_blanco);
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+	left: 0;
+	top: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+.container nav a, nav span {
+background: var(--color_rosa);
+border: 2px solid var(--color_letra);
+text-decoration: none;
+color: var(--color_letra);
+margin: 2rem 2rem 2rem 0rem;
+font-family: 'Raleway', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 1rem;
+line-height: 1.3rem;
+padding: 0.5rem;
+border-radius: 20%;
+}
+
+.headerPrincipal-adorno{
+width: 2rem;
+height: 2rem;
+margin: 0.4rem 1rem 1rem 1rem;
+}
+
+.headerPrincipal-titulo{
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  color: var(--color_letra);
+  margin: 0rem 6rem 0 1rem;
+}
+
+.foto {
+  width: 17%;
+  height: 25%;
+  border-radius: 32%;
+  position: absolute;
+  margin-left: 1rem;
+  margin-top: 4.5rem;
+}
+
+
+/* Linea de tiempo
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.linea_tiempo {
+  white-space: nowrap;
+  background: var(--color_rosa);
+  overflow-x: hidden;
+}
+
+.linea_tiempo ol {
+  font-size: 0;
+  width:10vw;
+  padding: 382px 0 250px 0;
+  transition: all 1s;
+}
+
+.linea_tiempo ol li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 80px;
+  height: 5px;
+  background: var(--color_blanco);
+}
+
+.linea_tiempo ol li:first-child {
+  margin-left: 20px;
+  width: 30px;
+}
+
+.linea_tiempo ol li:last-child {
+  width: 30px;
+}
+
+.linea_tiempo ol li:not(:first-child) {
+  margin-left: 26px;
+}
+
+
+/*circulos*/
+
+.linea_tiempo ol li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(95% + 5px);
+  bottom: 0;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--color_rojo);
+  border: 4px solid var(--color_letra);
+}
+
+/*aplicaré estilo a los elementos div (los llamaré "elementos de línea de tiempo" de aquí en adelante) 
+que son parte de los elementos de la lista así como sus pseudo-elementos ::before.
+
+Usaré las pseudo-clases CSS :nth-child(odd) y :nth-child(even) para diferenciar 
+los estilos para los divs pares e impares.*/
+
+.linea_tiempo ol li div {
+  position: absolute;
+  left: calc(90%);
+  width: 130px;
+  padding: 4px;
+  font-size: 0.85rem;
+  white-space: normal;
+  color: var(--color_letra);
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  background: white;
+  text-align: center;
+}
+
+.linea_tiempo ol li div::before {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+
+/* estilos impares */
+
+.linea_tiempo ol li:nth-child(odd) div {
+  top: -16px;
+  transform: translateY(-100%);
+}
+
+.linea_tiempo ol li:nth-child(odd) div::before {
+  top: 100%;
+  border-width: 8px 8px 0 0;
+  border-color: white transparent transparent transparent;
+}
+
+/* estilos pares*/
+
+.linea_tiempo ol li:nth-child(even) div {
+  top: calc(100% + 16px);
+}
+
+.linea_tiempo ol li:nth-child(even) div::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent white;
+}
+
+.linea_tiempo time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--color_azul);
+}
+
+
+/* imagenes de la linea de tiempo
+--------------------------------------------------*/
+#sombrero{
+width: 61%;
+margin: 0.5rem;
+}
+
+#logo-utn, #mirgor, #one, #escudo{
+width: 81%;
+margin: 0.5rem;  
+}
+
+#ministerio, #philips, #peugeot, #arn, #arg-prog, #buscando{
+width: 100%;
+margin-top: 0.5rem;
+}
+
+
+/* Botones para bajar pdfs
+--------------------------------------------------*/
+.boton-pdf{
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background: var(--color_rosa);
+  border: 2px solid var(--color_letra);
+  color: var(--color_letra);
+  margin: 0 0.5rem 1rem 60rem;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  padding: 0.5rem;
+  border-radius: 20%;
+}
+
+
+/* secciones sobre mi - habilidades - Hobbies y contacto 
+-------------------------------------------------------------*/
+
+#seccion-sobre-mi, #seccion-formacion{
+    width: 100%;
+}
+
+.texto-sobre-mi{
+  padding-left: 75px;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  max-width: 75rem;
+  text-align: justify;
+}
+
+#firma{
+  margin-left: 75px;
+  margin-top: 31px;
+  width: 10%;
+  margin-bottom: 100px;
+}
+
+#seccion-skills{
+  background: var(--color_celeste);
+  margin: auto;
+}
+
+ul{
+  display:flex;
+}
+
+.icons-habilidades{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+  list-style: none;
+  margin: auto;
+  margin-top: 90px !important;
+  margin-bottom: 100px;
+  font-size: 70px;
+  color:#297ae5;
+}
+
+.icons-habilidades p{
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 19px;
+  color:#000000;
+  padding-top: 10px;
+}
+
+#skills, #hobbies, #sobre-mi, #contacto{
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+  margin: 0px 75px 0;
+  padding: 30px 0 0;
+  padding-top: 120px;
+}
+
+.lista-skills li, .lista-hobbies li{
+  display: inline-block;
+  width: 15%;
+  padding: 0px 0 20px 75px;
+  vertical-align: bottom;
+  box-sizing: border-box;
+  margin: 0 10px;
+  position: static;
+  width:223px;
+  height: 174px;
+  left: 768px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.lista-skills p, .lista-hobbies p, .lista-formaciones p{
+  padding-top: 15px;
+}
+
+
+#icono-git, #icono-trekking, #icono-natacion, #icono-astronomia, #icono-robotica{
+  width:60%    
+}
+
+
+/* Formulario de contacto
+  ----------------------------------------------*/
+
+.principal_contacto{
+  background: var(--color_celeste); 
+  padding-bottom: 5px;
+}
+
+.cuadro-contacto{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 450px;
+  background: var(--color_celeste);
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 1rem;
+  margin: 1rem;
+  margin-left: 230px;
+  margin-right: 70px;
+  width: 950px;
+  overflow: hidden;
+  border: 2px solid #d6d5d0;
+}   
+
+.contenedor-contacto img{
+  transform: scale(0.7);
+  margin: 0px -64px;
+}   
+  
+.contacto{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 480px;
+  margin: 0px 16px;
+}
+  
+.contacto-info span{
+  position: static;
+  width: 141px;
+  height: 38px;
+  left: 0px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+  color: #464646;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 13px 0px;
+}
+
+.contacto p{
+  position: static;
+  width: 590px;
+  height: 38px;
+  left: 0px;
+  top: 46px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #464646;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+.formulario{
+  display: inline;
+  height: 397px;
+  margin: 32px -3px;
+  font-family: Raleway;
+}
+
+#nombre{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  font-family: Raleway;
+  position: static;
+  width: 95%;
+  height: 34px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+#email-contacto{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 95%;
+  height: 34px;
+  left: 0px;
+  top: 88px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 14px 0px;
+  font-family: Raleway;
+}
+
+#asunto{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  font-family: Raleway;
+  position: static;
+  width: 95%;
+  height: 34px;
+  left: 0px;
+  top: 176px;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 14px 0px;
+}
+
+#mensaje{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10px;
+  font-family: Raleway;
+  position: static;
+  width: 95%;
+  height: 133px;
+  left: 0px;
+  top: 264px;
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 14px 0px;
+}
+
+#btn-enviar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  position: static;
+  width: 144px;
+  height: 51px;
+  left: 0px;
+  top: 545px;
+  background: #d6d5d0;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  margin: 14px 0px;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+#btn-enviar:hover{
+  background:  #fdcae1;
+}
+
+#btn-enviar span{
+  position: static;
+  width: 112px;
+  height: 19px;
+  left: 16px;
+  top: 16px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+.pie-pagina{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: static;
+  width: 100%;
+  left: 0px;
+  top: 388px;
+  background: #FFFFFF;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.pie-pagina span{
+  position: static;
+  width: 290px;
+  left: 605.5px;
+  top: 32px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #464646;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  flex: none;
+  order: 5;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 870px) {
+  
+  .container {
+  width: 70%;
+  }
+
+  .container nav a, nav span{
+   margin: 2rem 0.5rem 2rem 0rem;
+	}
+
+  .linea_tiempo ol,
+  .linea_tiempo ol li {
+    width: auto; 
+  }
+  
+  .linea_tiempo ol {
+    padding: 0;
+    transform: none !important;
+  }
+  
+  .linea_tiempo ol li {
+    display: block;
+    height: auto;
+    background: transparent;
+  }
+  
+  .linea_tiempo ol li:first-child {
+    margin-top: 25px;
+  }
+  
+  .linea_tiempo ol li:not(:first-child) {
+    margin-left: auto;
+  }
+  
+  .linea_tiempo ol li div {
+    width: 94%;
+    height: auto !important;
+    margin: 0 auto 25px;
+  }
+  
+  .linea_tiempo ol li div {
+    position: static;
+  }
+  
+  .linea_tiempo ol li:nth-child(odd) div {
+    transform: none;
+  }
+  
+  .linea_tiempo ol li:nth-child(odd) div::before,
+  .linea_tiempo ol li:nth-child(even) div::before {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: none;
+    border-left: 1px solid white;
+    height: 25px;
+  }
+  
+  .linea_tiempo ol li:last-child,
+  .linea_tiempo ol li:nth-last-child(2) div::before,
+  .linea_tiempo ol li:not(:last-child)::after,
+  .linea_tiempo .flechas {
+    display: none;
+  }
+}
